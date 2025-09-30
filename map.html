@@ -26,28 +26,27 @@
     <main class="map-main">
         <div class="container">
             <div class="map-container">
-                <!-- НОВАЯ ДОРОЖКА - Извилистый путь с узорами -->
+                <!-- Декоративные круги -->
+                <div class="circle-decoration decoration-1"></div>
+                <div class="circle-decoration decoration-2"></div>
+
+                <!-- Стрелки -->
                 <svg class="connection-lines" width="100%" height="100%" viewBox="0 0 1000 600">
-                    <!-- Основной извилистый путь -->
-                    <path class="path-line"
-                        d="M100,100 C200,50 300,150 400,100 C500,50 600,150 700,100 C800,50 900,150 500,400" fill="none"
-                        stroke-linecap="round" />
+                    <!-- Определение стрелки -->
+                    <defs>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="var(--accent-color)" />
+                        </marker>
+                    </defs>
 
-                    <!-- Декоративные линии -->
-                    <path class="path-decoration" d="M120,90 C220,40 320,140 420,90" fill="none" />
-                    <path class="path-decoration" d="M380,110 C480,60 580,160 680,110" fill="none" />
-                    <path class="path-decoration" d="M480,90 C580,40 680,140 780,90" fill="none" />
-                    <path class="path-decoration" d="M680,110 C630,200 580,300 500,380" fill="none" />
-
-                    <!-- Точки на пути -->
-                    <circle class="path-dot dot-1" cx="100" cy="100" r="6" />
-                    <circle class="path-dot dot-2" cx="400" cy="100" r="6" />
-                    <circle class="path-dot dot-3" cx="700" cy="100" r="6" />
-                    <circle class="path-dot dot-4" cx="500" cy="400" r="8" />
-                    <circle class="path-dot dot-5" cx="500" cy="400" r="4" fill="white" />
+                    <!-- Стрелки между пунктами -->
+                    <line class="arrow-line arrow-1" x1="240" y1="140" x2="360" y2="140" />
+                    <line class="arrow-line arrow-2" x1="440" y1="140" x2="560" y2="140" />
+                    <line class="arrow-line arrow-3" x1="640" y1="140" x2="760" y2="140" />
+                    <line class="arrow-line arrow-4" x1="820" y1="140" x2="530" y2="380" />
                 </svg>
 
-                <!-- Пункты карты -->
+                <!-- Пункты карты в кружочках -->
                 <div class="map-item item-1" data-section="introduction">
                     <a href="/introduction.html" class="map-link">
                         <div class="icon">
@@ -74,7 +73,7 @@
                             <i class="fas fa-pen-fancy"></i>
                         </div>
                         <h3>Творчество</h3>
-                        <p>Произведения и переводы</p>
+                        <p>Произведения</p>
                     </a>
                 </div>
 

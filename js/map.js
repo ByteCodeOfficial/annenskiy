@@ -2,12 +2,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     const mapItems = document.querySelectorAll('.map-item');
     
-    // Анимация появления пунктов с задержкой
+    // Анимация появления кружочков с задержкой
     mapItems.forEach((item, index) => {
         setTimeout(() => {
             item.style.opacity = '1';
-            item.style.transform = 'translateY(0) scale(1)';
-        }, index * 400 + 1000);
+            item.style.transform = 'scale(1)';
+        }, index * 300 + 500);
     });
     
     // Добавляем интерактивность для карточек
@@ -21,17 +21,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Анимация дорожки при загрузке
-    const pathLine = document.querySelector('.path-line');
-    const pathDecorations = document.querySelectorAll('.path-decoration');
-    
-    setTimeout(() => {
-        pathLine.style.strokeDashoffset = '0';
-    }, 500);
-    
-    pathDecorations.forEach((decoration, index) => {
+    // Анимация стрелок при загрузке
+    const arrows = document.querySelectorAll('.arrow-line');
+    arrows.forEach((arrow, index) => {
         setTimeout(() => {
-            decoration.style.strokeDashoffset = '0';
-        }, index * 300 + 800);
+            arrow.style.opacity = '0.7';
+        }, index * 500 + 1000);
     });
 });

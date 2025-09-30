@@ -63,7 +63,7 @@
     margin: 0 auto;
 }
 
-/* НОВЫЙ СТИЛЬ ДОРОЖКИ - Извилистый путь с узорами */
+/* Стиль с кружочками и стрелками */
 .connection-lines {
     position: absolute;
     top: 0;
@@ -73,89 +73,57 @@
     z-index: 1;
 }
 
-/* Основная дорожка - извилистый путь */
-.path-line {
+/* Линии со стрелками */
+.arrow-line {
     stroke: var(--accent-color);
-    stroke-width: 4;
+    stroke-width: 3;
     fill: none;
-    stroke-dasharray: 15;
-    stroke-dashoffset: 100;
-    animation: drawPath 3s ease-in-out forwards;
-    opacity: 0.7;
-}
-
-/* Декоративные элементы дорожки */
-.path-decoration {
-    stroke: var(--secondary-color);
-    stroke-width: 2;
-    fill: none;
-    stroke-dasharray: 5;
-    opacity: 0.4;
-    animation: drawDecoration 2s ease-in-out forwards;
-}
-
-/* Точки на дорожке */
-.path-dot {
-    fill: var(--accent-color);
-    animation: pulseDot 2s infinite;
+    marker-end: url(#arrowhead);
     opacity: 0;
-    animation-fill-mode: forwards;
+    animation: drawArrow 1s ease-in-out forwards;
 }
 
-.dot-1 { animation-delay: 1s; }
-.dot-2 { animation-delay: 1.5s; }
-.dot-3 { animation-delay: 2s; }
-.dot-4 { animation-delay: 2.5s; }
-.dot-5 { animation-delay: 3s; }
+.arrow-1 { animation-delay: 0.5s; }
+.arrow-2 { animation-delay: 1s; }
+.arrow-3 { animation-delay: 1.5s; }
+.arrow-4 { animation-delay: 2s; }
 
-@keyframes drawPath {
+@keyframes drawArrow {
     to {
-        stroke-dashoffset: 0;
+        opacity: 0.7;
     }
 }
 
-@keyframes drawDecoration {
-    to {
-        stroke-dashoffset: 0;
-    }
-}
-
-@keyframes pulseDot {
-    0% {
-        opacity: 0;
-        transform: scale(0);
-    }
-    50% {
-        opacity: 1;
-        transform: scale(1.2);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-/* Пункты карты */
+/* Пункты карты в кружочках */
 .map-item {
     position: absolute;
     background: white;
-    border-radius: 15px;
-    padding: 25px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-radius: 50%;
+    width: 140px;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     transition: all 0.4s ease;
-    border: 2px solid transparent;
+    border: 3px solid var(--accent-color);
     z-index: 2;
-    width: 200px;
-    text-align: center;
     opacity: 0;
-    animation: fadeInUp 0.6s ease forwards;
-    background: linear-gradient(135deg, white 0%, #f8f6f0 100%);
+    animation: fadeInScale 0.6s ease forwards;
+    text-align: center;
 }
 
 .map-link {
     text-decoration: none;
     color: inherit;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    border-radius: 50%;
 }
 
 .map-link:hover {
@@ -164,83 +132,116 @@
 }
 
 .map-item:hover {
-    transform: translateY(-8px) scale(1.05);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    border-color: var(--accent-color);
+    transform: scale(1.15);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    border-color: var(--secondary-color);
     background: linear-gradient(135deg, white 0%, #fffaf0 100%);
 }
 
 .map-item h3 {
     color: var(--primary-color);
-    margin-bottom: 10px;
-    font-size: 1.4rem;
+    margin-bottom: 5px;
+    font-size: 1rem;
     font-weight: 600;
+    line-height: 1.2;
 }
 
 .map-item p {
     color: var(--dark-color);
-    font-size: 0.9rem;
+    font-size: 0.75rem;
     margin-bottom: 0;
     opacity: 0.8;
-    font-style: italic;
+    line-height: 1.1;
 }
 
 .map-item .icon {
-    font-size: 2.5rem;
+    font-size: 1.8rem;
     color: var(--accent-color);
-    margin-bottom: 15px;
+    margin-bottom: 8px;
     transition: all 0.3s ease;
-    background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
 }
 
 .map-item:hover .icon {
-    transform: scale(1.2) rotate(-5deg);
+    transform: scale(1.2) rotate(10deg);
 }
 
-/* Позиционирование пунктов */
+/* Позиционирование кружочков */
 .item-1 {
-    top: 10%;
-    left: 10%;
-    animation-delay: 0.8s;
+    top: 20%;
+    left: 15%;
+    animation-delay: 0.3s;
 }
 
 .item-2 {
-    top: 25%;
-    left: 30%;
-    animation-delay: 1.2s;
+    top: 20%;
+    left: 35%;
+    animation-delay: 0.6s;
 }
 
 .item-3 {
-    top: 10%;
-    left: 50%;
-    animation-delay: 1.6s;
+    top: 20%;
+    left: 55%;
+    animation-delay: 0.9s;
 }
 
 .item-4 {
-    top: 25%;
-    left: 70%;
-    animation-delay: 2s;
+    top: 20%;
+    left: 75%;
+    animation-delay: 1.2s;
 }
 
 .item-5 {
     top: 60%;
-    left: 50%;
-    transform: translateX(-50%);
-    animation-delay: 2.4s;
-    width: 220px;
+    left: 45%;
+    animation-delay: 1.5s;
+    width: 160px;
+    height: 160px;
 }
 
-@keyframes fadeInUp {
+@keyframes fadeInScale {
     from {
         opacity: 0;
-        transform: translateY(30px) scale(0.9);
+        transform: scale(0.5);
     }
     to {
         opacity: 1;
-        transform: translateY(0) scale(1);
+        transform: scale(1);
+    }
+}
+
+/* Декоративные элементы */
+.circle-decoration {
+    position: absolute;
+    border: 2px dashed var(--accent-color);
+    border-radius: 50%;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.decoration-1 {
+    width: 200px;
+    height: 200px;
+    top: 15%;
+    left: 12%;
+    animation: pulseCircle 4s infinite;
+}
+
+.decoration-2 {
+    width: 180px;
+    height: 180px;
+    top: 55%;
+    left: 42%;
+    animation: pulseCircle 4s infinite 1s;
+}
+
+@keyframes pulseCircle {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.5;
     }
 }
 
@@ -252,14 +253,24 @@
     
     .map-item {
         position: relative;
-        width: 80%;
+        width: 120px;
+        height: 120px;
         margin: 20px auto;
         left: auto !important;
         top: auto !important;
         transform: none !important;
     }
     
+    .item-5 {
+        width: 140px;
+        height: 140px;
+    }
+    
     .connection-lines {
+        display: none;
+    }
+    
+    .circle-decoration {
         display: none;
     }
     
@@ -276,8 +287,22 @@
     }
     
     .map-item {
-        padding: 20px;
-        width: 90%;
+        width: 110px;
+        height: 110px;
+        padding: 15px;
+    }
+    
+    .item-5 {
+        width: 130px;
+        height: 130px;
+    }
+    
+    .map-item h3 {
+        font-size: 0.9rem;
+    }
+    
+    .map-item p {
+        font-size: 0.7rem;
     }
     
     .map-container {
