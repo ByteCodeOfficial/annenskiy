@@ -6,8 +6,8 @@ document.addEventListener('DOMContentLoaded', function() {
     mapItems.forEach((item, index) => {
         setTimeout(() => {
             item.style.opacity = '1';
-            item.style.transform = 'translateY(0)';
-        }, index * 300 + 500);
+            item.style.transform = 'translateY(0) scale(1)';
+        }, index * 400 + 1000);
     });
     
     // Добавляем интерактивность для карточек
@@ -21,11 +21,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Анимация линий при загрузке
-    const lines = document.querySelectorAll('.line');
-    lines.forEach((line, index) => {
+    // Анимация дорожки при загрузке
+    const pathLine = document.querySelector('.path-line');
+    const pathDecorations = document.querySelectorAll('.path-decoration');
+    
+    setTimeout(() => {
+        pathLine.style.strokeDashoffset = '0';
+    }, 500);
+    
+    pathDecorations.forEach((decoration, index) => {
         setTimeout(() => {
-            line.style.strokeDashoffset = '0';
-        }, index * 500 + 1000);
+            decoration.style.strokeDashoffset = '0';
+        }, index * 300 + 800);
     });
 });

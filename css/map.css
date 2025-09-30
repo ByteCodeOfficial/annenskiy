@@ -63,7 +63,7 @@
     margin: 0 auto;
 }
 
-/* Соединительные линии */
+/* НОВЫЙ СТИЛЬ ДОРОЖКИ - Извилистый путь с узорами */
 .connection-lines {
     position: absolute;
     top: 0;
@@ -73,23 +73,65 @@
     z-index: 1;
 }
 
-.line {
+/* Основная дорожка - извилистый путь */
+.path-line {
     stroke: var(--accent-color);
-    stroke-width: 3;
-    stroke-dasharray: 10;
+    stroke-width: 4;
+    fill: none;
+    stroke-dasharray: 15;
     stroke-dashoffset: 100;
-    animation: drawLine 2s ease-in-out forwards;
-    opacity: 0.6;
+    animation: drawPath 3s ease-in-out forwards;
+    opacity: 0.7;
 }
 
-.line-1 { animation-delay: 0.5s; }
-.line-2 { animation-delay: 1s; }
-.line-3 { animation-delay: 1.5s; }
-.line-4 { animation-delay: 2s; }
+/* Декоративные элементы дорожки */
+.path-decoration {
+    stroke: var(--secondary-color);
+    stroke-width: 2;
+    fill: none;
+    stroke-dasharray: 5;
+    opacity: 0.4;
+    animation: drawDecoration 2s ease-in-out forwards;
+}
 
-@keyframes drawLine {
+/* Точки на дорожке */
+.path-dot {
+    fill: var(--accent-color);
+    animation: pulseDot 2s infinite;
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+.dot-1 { animation-delay: 1s; }
+.dot-2 { animation-delay: 1.5s; }
+.dot-3 { animation-delay: 2s; }
+.dot-4 { animation-delay: 2.5s; }
+.dot-5 { animation-delay: 3s; }
+
+@keyframes drawPath {
     to {
         stroke-dashoffset: 0;
+    }
+}
+
+@keyframes drawDecoration {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes pulseDot {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
     }
 }
 
@@ -97,16 +139,17 @@
 .map-item {
     position: absolute;
     background: white;
-    border-radius: 20px;
+    border-radius: 15px;
     padding: 25px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     transition: all 0.4s ease;
-    border: 3px solid var(--accent-color);
+    border: 2px solid transparent;
     z-index: 2;
     width: 200px;
     text-align: center;
     opacity: 0;
     animation: fadeInUp 0.6s ease forwards;
+    background: linear-gradient(135deg, white 0%, #f8f6f0 100%);
 }
 
 .map-link {
@@ -121,15 +164,17 @@
 }
 
 .map-item:hover {
-    transform: translateY(-10px) scale(1.05);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-    border-color: var(--secondary-color);
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    border-color: var(--accent-color);
+    background: linear-gradient(135deg, white 0%, #fffaf0 100%);
 }
 
 .map-item h3 {
     color: var(--primary-color);
     margin-bottom: 10px;
     font-size: 1.4rem;
+    font-weight: 600;
 }
 
 .map-item p {
@@ -137,82 +182,65 @@
     font-size: 0.9rem;
     margin-bottom: 0;
     opacity: 0.8;
+    font-style: italic;
 }
 
 .map-item .icon {
     font-size: 2.5rem;
     color: var(--accent-color);
     margin-bottom: 15px;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, var(--accent-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .map-item:hover .icon {
-    transform: scale(1.2) rotate(10deg);
+    transform: scale(1.2) rotate(-5deg);
 }
 
 /* Позиционирование пунктов */
 .item-1 {
-    top: 15%;
+    top: 10%;
     left: 10%;
-    animation-delay: 0.2s;
-}
-
-.item-2 {
-    top: 15%;
-    left: 30%;
-    animation-delay: 0.4s;
-}
-
-.item-3 {
-    top: 15%;
-    left: 50%;
-    animation-delay: 0.6s;
-}
-
-.item-4 {
-    top: 15%;
-    left: 70%;
     animation-delay: 0.8s;
 }
 
+.item-2 {
+    top: 25%;
+    left: 30%;
+    animation-delay: 1.2s;
+}
+
+.item-3 {
+    top: 10%;
+    left: 50%;
+    animation-delay: 1.6s;
+}
+
+.item-4 {
+    top: 25%;
+    left: 70%;
+    animation-delay: 2s;
+}
+
 .item-5 {
-    top: 55%;
+    top: 60%;
     left: 50%;
     transform: translateX(-50%);
-    animation-delay: 1s;
+    animation-delay: 2.4s;
     width: 220px;
 }
 
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(30px) scale(0.9);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Индикатор прогресса */
-.progress-dot {
-    position: absolute;
-    width: 12px;
-    height: 12px;
-    background: var(--accent-color);
-    border-radius: 50%;
-    z-index: 3;
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    50% {
-        transform: scale(1.5);
-        opacity: 0.7;
+        transform: translateY(0) scale(1);
     }
 }
 

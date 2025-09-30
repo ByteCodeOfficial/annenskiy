@@ -15,7 +15,7 @@
     <!-- Header -->
     <header class="map-header">
         <div class="container">
-            <a href="index.html" class="back-button">
+            <a href="/index.html" class="back-button">
                 <i class="fas fa-arrow-left"></i> Назад
             </a>
             <h1 class="map-main-title">Путешествие по творчеству Анненского</h1>
@@ -26,12 +26,25 @@
     <main class="map-main">
         <div class="container">
             <div class="map-container">
-                <!-- Соединительные линии -->
-                <svg class="connection-lines" width="100%" height="100%">
-                    <line class="line line-1" x1="20%" y1="25%" x2="40%" y2="25%" />
-                    <line class="line line-2" x1="40%" y1="25%" x2="60%" y2="25%" />
-                    <line class="line line-3" x1="60%" y1="25%" x2="80%" y2="25%" />
-                    <line class="line line-4" x1="80%" y1="25%" x2="50%" y2="60%" />
+                <!-- НОВАЯ ДОРОЖКА - Извилистый путь с узорами -->
+                <svg class="connection-lines" width="100%" height="100%" viewBox="0 0 1000 600">
+                    <!-- Основной извилистый путь -->
+                    <path class="path-line"
+                        d="M100,100 C200,50 300,150 400,100 C500,50 600,150 700,100 C800,50 900,150 500,400" fill="none"
+                        stroke-linecap="round" />
+
+                    <!-- Декоративные линии -->
+                    <path class="path-decoration" d="M120,90 C220,40 320,140 420,90" fill="none" />
+                    <path class="path-decoration" d="M380,110 C480,60 580,160 680,110" fill="none" />
+                    <path class="path-decoration" d="M480,90 C580,40 680,140 780,90" fill="none" />
+                    <path class="path-decoration" d="M680,110 C630,200 580,300 500,380" fill="none" />
+
+                    <!-- Точки на пути -->
+                    <circle class="path-dot dot-1" cx="100" cy="100" r="6" />
+                    <circle class="path-dot dot-2" cx="400" cy="100" r="6" />
+                    <circle class="path-dot dot-3" cx="700" cy="100" r="6" />
+                    <circle class="path-dot dot-4" cx="500" cy="400" r="8" />
+                    <circle class="path-dot dot-5" cx="500" cy="400" r="4" fill="white" />
                 </svg>
 
                 <!-- Пункты карты -->
