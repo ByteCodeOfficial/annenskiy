@@ -399,33 +399,75 @@
         gap: 1rem;
         text-align: center;
     }
-    
+
     .content-nav h1 {
         font-size: 2rem;
     }
-    
+
     .hero-title {
         font-size: 2.2rem;
     }
-    
+
     .hero-subtitle {
         font-size: 1.2rem;
     }
-    
+
     .content-section h3 {
         font-size: 1.5rem;
     }
-    
+
     .legacy-section {
         padding: 2rem 1rem;
     }
-    
+
     .fact-item {
         flex-direction: column;
         gap: 0.5rem;
     }
-    
+
     .fact-value {
         text-align: left;
     }
+}
+
+/* Растягиваем карточку с фактами */
+.info-card {
+    width: 100%;
+    max-width: 100%;
+}
+
+.info-card-body .row {
+    margin: 0 -10px;
+}
+
+.info-card-body .col-md-6 {
+    padding: 0 10px;
+}
+
+.fact-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(139, 115, 85, 0.2);
+}
+
+.fact-item:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.fact-label {
+    font-weight: 600;
+    color: var(--primary-color);
+    flex: 1;
+    margin-right: 15px;
+}
+
+.fact-value {
+    color: var(--dark-color);
+    text-align: right;
+    flex: 1;
 }
