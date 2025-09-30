@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заключение | Иннокентий Анненский</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        :root {
+            --primary-color: #2c1810;
+            --secondary-color: #8b7355;
+            --accent-color: #d4af37;
+            --light-color: #f5f1e8;
+            --dark-color: #1a120b;
+        }
+        
+        .content-page {
+            background: linear-gradient(135deg, var(--light-color) 0%, #f8f4e9 100%);
+            min-height: 100vh;
+        }
+
+        .content-header {
+            background: var(--primary-color);
+            color: var(--light-color);
+            padding: 30px 0;
+            border-bottom: 3px solid var(--accent-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .content-header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="none" stroke="%23d4af37" stroke-width="0.5" d="M20,20 C40,10 60,10 80,20 C90,40 90,60 80,80 C60,90 40,90 20,80 C10,60 10,40 20,20 Z"/></svg>');
+            opacity: 0.1;
+            background-size: 150px;
+        }
+
+        .content-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .back-button {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border: 2px solid var(--accent-color);
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            color: var(--light-color);
+            background: var(--accent-color);
+            transform: translateX(-5px);
+            text-decoration: none;
+        }
+
+        .content-nav h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin: 0;
+            text-align: center;
+            flex: 1;
+        }
+
+        .nav-decoration {
+            color: var(--accent-color);
+            font-size: 2rem;
+        }
+
+        /* Hero Section */
+        .content-hero {
+            padding: 80px 0 50px;
+            border-bottom: 2px solid rgba(139, 115, 85, 0.2);
+            margin-bottom: 50px;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            font-style: italic;
+            margin-bottom: 2rem;
+        }
+
+        .hero-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--dark-color);
+        }
+
+        .hero-image {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border: 3px solid var(--accent-color);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .image-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(44, 24, 16, 0.9));
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-style: italic;
+        }
+
+        /* Conclusion Sections */
+        .conclusion-section {
+            margin: 60px 0;
+        }
+
+        .conclusion-section h3 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .conclusion-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        /* Legacy Summary */
+        .legacy-summary {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 3rem 0;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .legacy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .legacy-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .legacy-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-color);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .legacy-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        .legacy-title {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .legacy-description {
+            color: var(--dark-color);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Final Thoughts */
+        .final-thoughts {
+            text-align: center;
+            margin: 4rem 0;
+            padding: 3rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--accent-color);
+        }
+
+        .final-quote {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--primary-color);
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .final-quote::before,
+        .final-quote::after {
+            content: '"';
+            font-size: 4rem;
+            color: var(--accent-color);
+            position: absolute;
+            opacity: 0.3;
+        }
+
+        .final-quote::before {
+            top: -20px;
+            left: -30px;
+        }
+
+        .final-quote::after {
+            bottom: -40px;
+            right: -30px;
+        }
+
+        .quote-author {
+            color: var(--secondary-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* Return to Map */
+        .return-section {
+            text-align: center;
+            margin: 4rem 0;
+            padding: 3rem;
+        }
+
+        .return-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 15px 30px;
+            background: var(--accent-color);
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+
+        .return-button:hover {
+            background: var(--primary-color);
+            color: var(--light-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+            text-decoration: none;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--primary-color);
+            color: var(--light-color);
+            padding: 20px 0;
+            text-align: center;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--accent-color);
+        }
+
+        .ornament {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin: 0 10px;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .content-nav {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            
+            .content-nav h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .legacy-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .legacy-summary {
+                padding: 2rem 1rem;
+            }
+            
+            .final-thoughts {
+                padding: 2rem 1rem;
+            }
+            
+            .final-quote {
+                font-size: 1.2rem;
+            }
+            
+            .final-quote::before {
+                left: -10px;
+            }
+            
+            .final-quote::after {
+                right: -10px;
+            }
+        }
+    </style>
+</head>
+<body class="content-page">
+    <!-- Header -->
+    <header class="content-header">
+        <div class="container">
+            <nav class="content-nav">
+                <a href="https://bytecodeofficial.github.io/annenskiy/map.html" class="back-button">
+                    <i class="fas fa-arrow-left"></i> К карте
+                </a>
+                <h1>Заключение</h1>
+                <div class="nav-decoration">
+                    <span class="ornament">✻</span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="content-main">
+        <div class="container">
+            <!-- Hero Section -->
+            <section class="content-hero">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h2 class="hero-title">Итоги творческого пути</h2>
+                        <p class="hero-subtitle">Наследие Анненского в русской литературе</p>
+                        <p class="hero-text">Иннокентий Анненский представляет собой редкий пример художника, чья истинная ценность была осознана уже после его ухода. Его творчество продолжает жить и находить отклик в сердцах новых поколений.</p>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="hero-image">
+                            <img src="https://avatars.mds.yandex.net/i?id=21a5d411e83a305493de9b2a2333e1b01f2d3344-15405836-images-thumbs&n=13" 
+                                 alt="Иннокентий Анненский" class="img-fluid">
+                            <div class="image-caption">Иннокентий Фёдорович Анненский</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Main Conclusion -->
+            <section class="conclusion-section">
+                <h3><i class="fas fa-star me-3"></i>Значение творчества Анненского</h3>
+                <p>Таким образом, Иннокентий Анненский представляет собой редкий пример художника, чья истинная ценность была осознана уже после его ухода. Он не гнался за славой, а творил в тишине кабинета, подчиняясь внутренней потребности в самовыражении.</p>
+                
+                <p>Его наследие — это квинтэссенция интеллектуальной и душевной работы целой эпохи. Анненский сумел выразить в слове тончайшие оттенки человеческой психики и сложный мир современного ему городского человека.</p>
+
+                <p>Трагическая, «осенняя» тональность его поэзии оказалась чрезвычайно созвучна последующим поколениям читателей. Сегодня его имя по праву стоит в одном ряду с самыми яркими звёздами Серебряного века.</p>
+            </section>
+
+            <!-- Legacy Summary -->
+            <section class="legacy-summary">
+                <h3 class="text-center"><i class="fas fa-gem me-3"></i>Творческое наследие</h3>
+                <p class="text-center">Анненский оставил богатое наследие, которое продолжает влиять на русскую литературу и сегодня.</p>
+                
+                <div class="legacy-grid">
+                    <div class="legacy-card">
+                        <div class="legacy-icon">
+                            <i class="fas fa-pen-fancy"></i>
+                        </div>
+                        <h4 class="legacy-title">Поэтическое новаторство</h4>
+                        <p class="legacy-description">Создал уникальный поэтический язык, сочетающий интеллектуальную глубину с тонким лиризмом</p>
+                    </div>
+
+                    <div class="legacy-card">
+                        <div class="legacy-icon">
+                            <i class="fas fa-language"></i>
+                        </div>
+                        <h4 class="legacy-title">Переводческое мастерство</h4>
+                        <p class="legacy-description">Познакомил русских читателей с лучшими образцами античной и европейской литературы</p>
+                    </div>
+
+                    <div class="legacy-card">
+                        <div class="legacy-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <h4 class="legacy-title">Педагогическое влияние</h4>
+                        <p class="legacy-description">Воспитал целое поколение поэтов, став "учителем учителей" Серебряного века</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Final Thoughts -->
+            <section class="final-thoughts">
+                <p class="final-quote">
+                    Творчество Анненского продолжает жить, находя отклик в сердцах тех, кто ищет в поэзии не только красоты, но и глубины мысли. Его стихи — это разговор с вечностью, запечатленный в слове.
+                </p>
+                <p class="quote-author">— Вечное наследие поэта-мыслителя</p>
+            </section>
+
+            <!-- Return to Map -->
+            <section class="return-section">
+                <a href="https://bytecodeofficial.github.io/annenskiy/map.html" class="return-button">
+                    <i class="fas fa-map"></i>
+                    Вернуться к карте творчества
+                </a>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="mb-0">
+                <span class="ornament">❦</span>
+                Коннов Артём | ©️ 2025
+                <span class="ornament">❦</span>
+            </p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Анимации для страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            // Анимация карточек наследия
+            const legacyCards = document.querySelectorAll('.legacy-card');
+            legacyCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 300 + 500);
+            });
+
+            // Анимация финальной цитаты
+            const finalQuote = document.querySelector('.final-quote');
+            finalQuote.style.opacity = '0';
+            
+            setTimeout(() => {
+                finalQuote.style.transition = 'opacity 1s ease';
+                finalQuote.style.opacity = '1';
+            }, 1500);
+
+            // Анимация кнопки возврата
+            const returnButton = document.querySelector('.return-button');
+            returnButton.style.opacity = '0';
+            returnButton.style.transform = 'scale(0.8)';
+            
+            setTimeout(() => {
+                returnButton.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                returnButton.style.opacity = '1';
+                returnButton.style.transform = 'scale(1)';
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
