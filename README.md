@@ -1,1 +1,1 @@
-bytecodeofficial.github.io/annenskiy
+https://bytecodeofficial.github.io/annenskiy
