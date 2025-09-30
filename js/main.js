@@ -1,43 +1,7 @@
-// Обработчик открытия карты
-document.getElementById('startButton').addEventListener('click', function(e) {
-    e.preventDefault();
-    document.getElementById('mapOverlay').classList.add('active');
-});
-
-// Обработчик закрытия карты
-document.getElementById('mapClose').addEventListener('click', function() {
-    document.getElementById('mapOverlay').classList.remove('active');
-});
-
-// Закрытие карты по клику вне её области
-document.getElementById('mapOverlay').addEventListener('click', function(e) {
-    if (e.target === this) {
-        this.classList.remove('active');
-    }
-});
-
-// Дополнительная функциональность - плавная прокрутка для будущих разделов
+// Анимация появления элементов при загрузке главной страницы
 document.addEventListener('DOMContentLoaded', function() {
-    // Добавляем плавную прокрутку для всех внутренних ссылок
-    const internalLinks = document.querySelectorAll('a[href^="#"]');
-    internalLinks.forEach(link => {
-        link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            if (targetId !== '#') {
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            }
-        });
-    });
-    
-    // Анимация появления элементов при загрузке
     const heroElements = document.querySelectorAll('.hero-section .author-name, .hero-section .subtitle, .hero-section .lead, .portrait-container, .cta-button');
+    
     heroElements.forEach((element, index) => {
         element.style.opacity = '0';
         element.style.transform = 'translateY(20px)';
@@ -48,4 +12,22 @@ document.addEventListener('DOMContentLoaded', function() {
             element.style.transform = 'translateY(0)';
         }, index * 200);
     });
+    
+    // Добавляем интерактивность для портрета
+    const portrait = document.querySelector('.portrait-frame');
+    if (portrait) {
+        portrait.addEventListener('mouseenter', function() {
+            this.style.transform = 'scale(1.05) rotate(2deg)';
+        });
+        
+        portrait.addEventListener('mouseleave', function() {
+            this.style.transform = 'scale(1) rotate(0deg)';
+        });
+    }
+    
+    // УБИРАЕМ этот обработчик, так как он блокирует переход по ссылке
+    // document.getElementById('startButton').addEventListener('click', function(e) {
+    //     e.preventDefault(); // Эта строка предотвращает переход по ссылке
+    //     document.getElementById('mapOverlay').classList.add('active');
+    // });
 });
