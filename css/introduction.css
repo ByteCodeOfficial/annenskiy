@@ -539,3 +539,116 @@
         padding: 1.5rem;
     }
 }
+
+/* Обновленные стили для карточки с фактами */
+.info-card-wide .info-card-body .row {
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 0 -10px;
+    align-items: stretch;
+}
+
+.info-card-wide .info-card-body .col-md-3 {
+    flex: 1;
+    padding: 0 10px;
+    display: flex;
+}
+
+.fact-item-wide {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    border-right: 1px solid rgba(139, 115, 85, 0.2);
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.fact-item-wide:last-child {
+    border-right: none;
+}
+
+.fact-item-wide .fact-label {
+    display: block;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+    font-size: 0.95rem;
+    line-height: 1.3;
+}
+
+.fact-item-wide .fact-value {
+    display: block;
+    color: var(--dark-color);
+    font-size: 1rem;
+    line-height: 1.4;
+    text-align: center;
+}
+
+/* Выравнивание высоты карточек */
+.info-card-wide .info-card-body {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .info-card-wide .info-card-body .row {
+        flex-wrap: wrap;
+        margin: 0;
+    }
+    
+    .info-card-wide .info-card-body .col-md-3 {
+        flex: 0 0 50%;
+        padding: 0;
+        margin-bottom: 1rem;
+    }
+    
+    .fact-item-wide {
+        border-right: none;
+        border-bottom: 1px solid rgba(139, 115, 85, 0.2);
+        padding: 1rem 0.5rem;
+        min-height: 80px;
+    }
+    
+    .fact-item-wide:nth-child(even) {
+        border-right: none;
+    }
+    
+    .fact-item-wide:nth-last-child(-n+2) {
+        border-bottom: none;
+        margin-bottom: 0;
+    }
+    
+    .info-card-wide .info-card-body {
+        padding: 1.5rem;
+    }
+    
+    .fact-item-wide .fact-label {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .fact-item-wide .fact-value {
+        font-size: 0.9rem;
+    }
+}
+
+/* Для очень маленьких экранов */
+@media (max-width: 480px) {
+    .info-card-wide .info-card-body .col-md-3 {
+        flex: 0 0 100%;
+    }
+    
+    .fact-item-wide {
+        border-bottom: 1px solid rgba(139, 115, 85, 0.2);
+        min-height: 70px;
+    }
+    
+    .fact-item-wide:last-child {
+        border-bottom: none;
+    }
+}
